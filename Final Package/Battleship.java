@@ -3,10 +3,11 @@
  */
 public class Battleship
 {
+    int length; 
     
-    public Battleship()
+    public Battleship(int length)
     {
-        
+        this.length = length;
     }
 
 }
