@@ -11,33 +11,33 @@ public class Battleship
         this.length = length;
     }
     
-    public placeBattleship(int xcoordinate, int ycoordinate,int directions,Board playingfield){
+    public void placeBattleship(int xcoordinate, int ycoordinate,int directions,Board playingfield){
         
         int x = xcoordinate;
         int y = ycoordinate;
         int direction = directions;
         
         if (direction == 1){// north
-            for (i = 0; i < length; i++)
+            for (int i = 0; i < length; i++)
                 playingfield.board[x][y + i] = 1;
         
        }
     
         if (direction == 2){// south
-            for (j = 0; j < length; j++)
-            playingfield.board[x][j - i] = 1;
+            for (int j = 0; j < length; j++)
+                playingfield.board[x][y - j] = 1;
         
        }
     
         if (direction == 3){// east
-            for (k = 0; k < length; k++)
-            playingfield.board[x + k][y] = 1;
+            for (int k = 0; k < length; k++)
+                playingfield.board[x + k][y] = 1;
         
        }
     
         if (direction == 4){// west
-            for (n = 0; n < length; n++)
-            playingfield.board[x - n][y] = 1;
+            for (int n = 0; n < length; n++)
+                playingfield.board[x - n][y] = 1;
         
        }
     
