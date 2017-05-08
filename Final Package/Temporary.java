@@ -62,9 +62,16 @@ public class Temporary extends JApplet
     {
         // simple text displayed on applet
         g.setColor(Color.blue);
-        g.fillRect(0, 0, 500, 750);
+        g.fillRect(0, 0, 500, 500);
         g.setColor(Color.white);
-        g.drawString("Battlefield", 225, 20);
+        
+        g.fillRect(50,50,400,400);
+        
+        Font armyfont = new Font("army", 1500, 20);
+        g.setFont(armyfont);
+        g.drawString("Battlefield", 200, 20);
+        
+        
     }
 
     /**
