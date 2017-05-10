@@ -61,12 +61,18 @@ public class Temporary extends JApplet
     public void paint(Graphics g)
     {
         
+        
         g.setColor(Color.blue);
         g.fillRect(0, 0, 1000, 600);
         g.setColor(Color.gray);
         g.fillRect(200,400,150,75);
         g.fillRect(650,400,150,75);
         Font buttonfont = new Font("asdfasdf", 1500, 35);
+        
+        Gui go = new Gui();
+        go.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        go.setSize(300,200);
+        go.setVisible(true);
         
         g.setFont(buttonfont);
         g.setColor(Color.white);
