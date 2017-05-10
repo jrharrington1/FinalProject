@@ -74,6 +74,8 @@ public class Client
         
         System.out.println("Ok " + name + " Your board is");
         player1.viewBoard();
+        
+ 
     }
 
     
