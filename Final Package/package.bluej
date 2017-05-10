@@ -26,8 +26,17 @@ package.editor.height=572
 package.editor.width=1248
 package.editor.x=-8
 package.editor.y=-8
+<<<<<<< HEAD
 package.numDependencies=7
 package.numTargets=6
+=======
+<<<<<<< HEAD
+package.numDependencies=3
+=======
+package.numDependencies=4
+>>>>>>> origin/master
+package.numTargets=4
+>>>>>>> origin/master
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
@@ -72,17 +81,26 @@ target3.type=AppletTarget
 target3.typeParameters=
 target3.width=90
 target3.x=740
+<<<<<<< HEAD
 target3.y=370
 target4.editor.height=700
 target4.editor.width=900
 target4.editor.x=32
 target4.editor.y=12
+=======
+target3.y=180
+target4.editor.height=728
+target4.editor.width=683
+target4.editor.x=683
+target4.editor.y=0
+>>>>>>> origin/master
 target4.height=50
 target4.name=Gui
 target4.showInterface=false
 target4.type=ClassTarget
 target4.typeParameters=
 target4.width=80
+<<<<<<< HEAD
 target4.x=70
 target4.y=10
 target5.editor.height=744
@@ -111,3 +129,7 @@ target6.typeParameters=
 target6.width=80
 target6.x=470
 target6.y=430
+=======
+target4.x=570
+target4.y=360
+>>>>>>> origin/master
