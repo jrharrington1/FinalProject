@@ -11,7 +11,7 @@ public class Battleship
         this.length = length;
     }
     
-    public void placeBattleship(int xcoordinate, int ycoordinate,int directions,Board playingfield){
+    public void placeBattleship(int xcoordinate, int ycoordinate, int directions, Board playingfield){
         
         int x = xcoordinate;
         int y = ycoordinate;

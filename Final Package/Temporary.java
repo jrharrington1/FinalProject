@@ -10,8 +10,8 @@ import javax.swing.*;
  */
 public class Temporary extends JApplet
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    Image logo;
+    MediaTracker tr;
 
     /**
      * Called by the browser or applet viewer to inform this JApplet that it
@@ -60,18 +60,82 @@ public class Temporary extends JApplet
      */
     public void paint(Graphics g)
     {
-        // simple text displayed on applet
+        
         g.setColor(Color.blue);
-        g.fillRect(0, 0, 500, 500);
+        g.fillRect(0, 0, 1000, 600);
+        g.setColor(Color.gray);
+        g.fillRect(200,400,150,75);
+        g.fillRect(650,400,150,75);
+        Font buttonfont = new Font("asdfasdf", 1500, 35);
+        
+        g.setFont(buttonfont);
         g.setColor(Color.white);
+        g.drawString("Start", 235, 445);
+        g.drawString("Options", 665, 445);
+        
+        tr = new MediaTracker(this);
+        logo = getImage(getCodeBase(), "battleshiplogo.jpg");
+        tr.addImage(logo, 0);
+        g.drawImage(logo, 335,111, this);
+        
+        /**
+
+      
+        g.setColor(Color.blue);
+        g.fillRect(0, 0, 1000, 600);
+        g.setColor(Color.cyan);
         
         g.fillRect(50,50,400,400);
-        
+        g.fillRect(550,50,400,400);
+
         Font armyfont = new Font("army", 1500, 20);
         g.setFont(armyfont);
-        g.drawString("Battlefield", 200, 20);
+        g.setColor(Color.white);
+        g.drawString("Battleship", 456, 20);
+        
+        g.setColor(Color.black);
+        
+        for (int x = 90; x < 450; x += 40)
+        {
+            g.drawLine(x, 50, x, 450);
+        }
+        
+        for (int y = 90; y < 450; y += 40)
+        {
+            g.drawLine(50, y, 450, y);
+        }
+        
+        for (int x = 590; x < 950; x += 40)
+        {
+            g.drawLine(x, 50, x, 450);
+        }
+        
+        for (int y = 90; y < 450; y += 40)
+        {
+            g.drawLine(550, y, 950, y);
+        }
         
         
+        Board player1 = new Board("Jack");
+        g.setColor(Color.black);
+        
+        
+        int y = 75;
+        for (int i = player1.bullets; i > 0; i--)
+        {
+            g.fillOval(13, y, 25, 25); 
+            y+= 50;
+        }
+        
+        Board player2 = new Board("Phillip");
+        y = 75;
+        
+        for (int i = player2.bullets; i > 0; i--)
+        {
+            g.fillOval(963, y, 25, 25); 
+            y+= 50;
+        }
+        */
     }
 
     /**
