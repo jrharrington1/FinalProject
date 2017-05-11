@@ -11,32 +11,20 @@ dependency3.type=UsesDependency
 dependency4.from=Temporary
 dependency4.to=Board
 dependency4.type=UsesDependency
-dependency5.from=Gui
-dependency5.to=Board
+dependency5.from=Apples
+dependency5.to=Gui
 dependency5.type=UsesDependency
-dependency6.from=Apples
+dependency6.from=Temporary
 dependency6.to=Gui
 dependency6.type=UsesDependency
-dependency7.from=Temporary
-dependency7.to=Gui
-dependency7.type=UsesDependency
 objectbench.height=76
 objectbench.width=1346
 package.editor.height=572
 package.editor.width=1248
 package.editor.x=-8
 package.editor.y=-8
-<<<<<<< HEAD
-package.numDependencies=7
+package.numDependencies=6
 package.numTargets=6
-=======
-<<<<<<< HEAD
-package.numDependencies=3
-=======
-package.numDependencies=4
->>>>>>> origin/master
-package.numTargets=4
->>>>>>> origin/master
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
@@ -81,55 +69,33 @@ target3.type=AppletTarget
 target3.typeParameters=
 target3.width=90
 target3.x=740
-<<<<<<< HEAD
-target3.y=370
-target4.editor.height=700
-target4.editor.width=900
-target4.editor.x=32
-target4.editor.y=12
-=======
 target3.y=180
-target4.editor.height=728
-target4.editor.width=683
-target4.editor.x=683
-target4.editor.y=0
->>>>>>> origin/master
+target4.editor.height=744
+target4.editor.width=1382
+target4.editor.x=-8
+target4.editor.y=-8
 target4.height=50
 target4.name=Gui
+target4.naviview.expanded=true
 target4.showInterface=false
 target4.type=ClassTarget
 target4.typeParameters=
 target4.width=80
-<<<<<<< HEAD
-target4.x=70
-target4.y=10
-target5.editor.height=744
-target5.editor.width=1382
-target5.editor.x=-8
-target5.editor.y=-8
+target4.x=570
+target4.y=350
 target5.height=50
 target5.name=Battleship
-target5.naviview.expanded=true
 target5.showInterface=false
 target5.type=ClassTarget
 target5.typeParameters=
 target5.width=80
-target5.x=740
-target5.y=180
-target6.editor.height=700
-target6.editor.width=900
-target6.editor.x=32
-target6.editor.y=12
+target5.x=90
+target5.y=10
 target6.height=50
 target6.name=Client
-target6.naviview.expanded=true
 target6.showInterface=false
 target6.type=ClassTarget
 target6.typeParameters=
 target6.width=80
-target6.x=470
-target6.y=430
-=======
-target4.x=570
-target4.y=360
->>>>>>> origin/master
+target6.x=180
+target6.y=10

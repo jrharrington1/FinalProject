@@ -8,6 +8,4 @@ public class Apples
         go.setSize(300,200);
         go.setVisible(true);
     }
-
-
 }

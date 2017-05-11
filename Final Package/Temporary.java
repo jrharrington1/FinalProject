@@ -1,18 +1,20 @@
-
+import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
-
+import java.lang.*;
 /**
  * Class Temporary - write a description of the class here
  * 
  * @author (your name) 
  * @version (a version number)
  */
-public class Temporary extends JApplet
+public class Temporary extends JApplet implements MouseListener
 {
     Image logo;
     MediaTracker tr;
-
+    boolean isButtonPressed = false;
+  
+    
     /**
      * Called by the browser or applet viewer to inform this JApplet that it
      * has been loaded into the system. It is always called before the first 
@@ -28,6 +30,9 @@ public class Temporary extends JApplet
         rootPane.putClientProperty("defeatSystemEventQueueCheck", Boolean.TRUE);
     
         // provide any initialisation necessary for your JApplet
+        
+        
+        
     }
 
     /**
@@ -69,10 +74,9 @@ public class Temporary extends JApplet
         g.fillRect(650,400,150,75);
         Font buttonfont = new Font("asdfasdf", 1500, 35);
         
-        Gui go = new Gui();
-        go.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        go.setSize(300,200);
-        go.setVisible(true);
+        int start = 0;
+        
+      
         
         g.setFont(buttonfont);
         g.setColor(Color.white);
@@ -84,7 +88,12 @@ public class Temporary extends JApplet
         tr.addImage(logo, 0);
         g.drawImage(logo, 335,111, this);
         
-        /**
+        
+        
+       
+   
+      
+        
 
       
         g.setColor(Color.blue);
@@ -141,7 +150,19 @@ public class Temporary extends JApplet
             g.fillOval(963, y, 25, 25); 
             y+= 50;
         }
-        */
+        
+        
+        
+        
+        
+        
+        g.setColor(Color.lightGray);
+        g.fillRect(300,475,400,100);
+        g.setColor(Color.black);
+        g.fillRect(310,485,380,80);
+        
+        
+       
     }
 
     /**
@@ -189,4 +210,31 @@ public class Temporary extends JApplet
         };
         return paramInfo;
     }
+    
+  
+        //MouseListener Methods
+        public void mouseClicked(MouseEvent event)
+        {
+            
+        }
+        public void mousePressed(MouseEvent event)
+        {
+            
+        }
+        public void mouseReleased(MouseEvent event)
+        {
+           
+        }
+        public void mouseEntered(MouseEvent event)
+        {
+            
+        }
+        public void mouseExited(MouseEvent event)
+        {
+            
+        }
+        
+       
+ 
+    
 }
