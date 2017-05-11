@@ -7,4 +7,6 @@ comment2.params=hit\ c\ r
 comment2.target=void\ updateBoard(boolean,\ int,\ int)
 comment3.params=
 comment3.target=void\ viewBoard()
-numComments=4
+comment4.params=
+comment4.target=int\ goBoard()
+numComments=5

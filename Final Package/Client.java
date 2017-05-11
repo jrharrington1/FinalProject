@@ -14,7 +14,8 @@ public class Client
 {
     //public int[][] placement;
     //Board player1 = new Board();
-    private Board player1, player2;
+    private static Board player1, player2, place1, place2;
+    private static String name, name1;
 
 
     /**
@@ -30,13 +31,13 @@ public class Client
     
         System.out.println("Player 1, what is your name?");
         System.out.println(" ");
-        String name = user_input.nextLine();
-        Board player1 = new Board(name);
+        name = user_input.nextLine();
+        player1 = new Board(name);
     
         System.out.println("Player 2, what is your name?");
         System.out.println(" ");
-        String name1 = user_input.nextLine();
-        Board player2 = new Board(name1);
+        name1 = user_input.nextLine();        
+        player2 = new Board(name1);
 
         Battleship placement  = new Battleship(2);
         Battleship placement1  = new Battleship(3);
@@ -135,38 +136,62 @@ public class Client
         
         System.out.println("Ok " + name1 + " Your board is");
         player2.viewBoard();
-        //turn();
+        turn(1);
         
 
         
  
     }
-    public static int n = 1;
-    public void turn()
+    
+    public static void turn(int n)
     {
         Scanner user_input = new Scanner(System.in);
-        if (n % 2 != 0)
-        {
-            System.out.println("It is your turn Player 1");
+        if (player2.goBoard() > 0){
+            if (n % 2 != 0)
+           {
+            System.out.println("It is your turn " + name);
             System.out.println("What x-cordinate do you want to target");
             int hit = user_input.nextInt();
             System.out.println("What y-cordinate do you want to target");
             int hit1 = user_input.nextInt();
-            boolean wow = player2.fire(hit,hit1);
+            boolean wow =  player2.fire(hit,hit1);
             if (wow == true)
                 System.out.println("Wow you got a hit");
             else
                 System.out.println("Sorry you did not get a hit");
             player2.updateBoard(wow, hit, hit1);
+            System.out.println(name1 + "'s board now looks like: ");
             player2.viewBoard();
             n++;
-            turn();
+            turn(n);
+           }
         }
+        else
+            System.out.println("Congrats " + name + " you win");
         
-        if (n % 2 == 0)
+        if (player1.goBoard() > 0)
         {
+            if (n % 2 == 0)
+            {
+                System.out.println("It is your turn " + name1);
+                System.out.println("What x-cordinate do you want to target");
+                int hit2 = user_input.nextInt();
+                System.out.println("What y-cordinate do you want to target");
+                int hit3 = user_input.nextInt();
+                boolean wow =  player1.fire(hit2,hit3);
+                if (wow == true)
+                    System.out.println("Wow you got a hit");
+                else
+                    System.out.println("Sorry you did not get a hit");
+                System.out.println(name + "'s board now looks like: ");
+                player1.updateBoard(wow, hit2, hit3);
+                player1.viewBoard();
+                n++;
+                turn(n);
+            }
         }
-        
+        else
+            System.out.println("Congrats " + name1+ " you win");
     }
 
     

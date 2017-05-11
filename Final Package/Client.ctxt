@@ -2,6 +2,6 @@
 comment0.params=args
 comment0.target=void\ main(java.lang.String[])
 comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Client\r\n
-comment1.params=
-comment1.target=void\ turn()
+comment1.params=n
+comment1.target=void\ turn(int)
 numComments=2

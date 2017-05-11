@@ -23,6 +23,7 @@ public class Board
     
     public int bullets;
     public String name; 
+    public boolean hit;
     public Board(String name)
     {
         this.name = name;
@@ -32,11 +33,11 @@ public class Board
     public boolean fire(int c, int r)
     {
         bullets--;
-        boolean hit;
-        if (board[c][r] == 0)
-            hit = false;
-        else
+        
+        if (board[c][r] == 1)
             hit = true;
+        else
+            hit = false;
         return hit;
         
         
@@ -60,6 +61,21 @@ public class Board
             System.out.println();
                 
         }
+    }
+    
+    public int goBoard()
+    {
+        int x = 0;
+        int count = 0;
+        for (int row = 0; row < board.length; row++){
+            for (int col = 0; col < board[row].length; col++)
+            {
+                x = board[row][col];
+                if (x == 1)
+                    count++;
+            }                
+        }
+        return count;
     }
 
 }
