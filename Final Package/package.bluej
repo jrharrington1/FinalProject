@@ -17,11 +17,7 @@ package.editor.height=572
 package.editor.width=1248
 package.editor.x=-8
 package.editor.y=-8
-<<<<<<< HEAD
-package.numDependencies=3
-=======
 package.numDependencies=4
->>>>>>> origin/master
 package.numTargets=4
 package.showExtends=true
 package.showUses=true
@@ -68,10 +64,10 @@ target3.typeParameters=
 target3.width=80
 target3.x=740
 target3.y=180
-target4.editor.height=728
-target4.editor.width=683
-target4.editor.x=683
-target4.editor.y=0
+target4.editor.height=744
+target4.editor.width=1382
+target4.editor.x=-8
+target4.editor.y=-8
 target4.height=50
 target4.name=Client
 target4.naviview.expanded=true
