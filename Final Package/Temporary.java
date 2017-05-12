@@ -13,6 +13,8 @@ public class Temporary extends JApplet implements MouseListener
     Image logo;
     MediaTracker tr;
     boolean isButtonPressed = false;
+    Board currentPlayer = new Board("");
+    Board otherPlayer = new Board("");
   
     
     /**
@@ -70,8 +72,8 @@ public class Temporary extends JApplet implements MouseListener
         g.setColor(Color.blue);
         g.fillRect(0, 0, 1000, 600);
         g.setColor(Color.gray);
-        g.fillRect(200,400,150,75);
-        g.fillRect(650,400,150,75);
+        g.fillRect(335,400,330,75);
+        
         Font buttonfont = new Font("asdfasdf", 1500, 35);
         
         int start = 0;
@@ -80,8 +82,8 @@ public class Temporary extends JApplet implements MouseListener
         
         g.setFont(buttonfont);
         g.setColor(Color.white);
-        g.drawString("Start", 235, 445);
-        g.drawString("Options", 665, 445);
+        g.drawString("Press Enter to Start", 345, 445);
+        
         
         tr = new MediaTracker(this);
         logo = getImage(getCodeBase(), "battleshiplogo.jpg");
@@ -94,7 +96,7 @@ public class Temporary extends JApplet implements MouseListener
    
       
         
-
+        /**
       
         g.setColor(Color.blue);
         g.fillRect(0, 0, 1000, 600);
@@ -161,7 +163,7 @@ public class Temporary extends JApplet implements MouseListener
         g.setColor(Color.black);
         g.fillRect(310,485,380,80);
         
-        
+        */
        
     }
 
@@ -215,7 +217,7 @@ public class Temporary extends JApplet implements MouseListener
         //MouseListener Methods
         public void mouseClicked(MouseEvent event)
         {
-            
+            fire(event.getX(),event.getY());
         }
         public void mousePressed(MouseEvent event)
         {
@@ -235,6 +237,30 @@ public class Temporary extends JApplet implements MouseListener
         }
         
        
- 
+    public boolean fire(int c, int r)
+    {
+        boolean hit = false;
+        
+        if (currentPlayer.board[c][r] != -1 || currentPlayer.board[c][r] != 2)
+        {
+            if (currentPlayer.board[c][r] == 1)
+            {
+                currentPlayer.bullets--;
+                hit = true;
+                currentPlayer.board[c][r] = 2;
+            }
+            else
+            {
+                currentPlayer.bullets--;
+                hit = false;
+                currentPlayer.board[c][r] = - 1;
+            }
+        }
+        
+        return hit;
+    }
+    
+        
+    
     
 }

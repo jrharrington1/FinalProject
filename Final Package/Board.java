@@ -42,7 +42,7 @@ public class Board
         
         
     }
-    S
+
     public void updateBoard(boolean hit, int c, int r)
     {
         if (hit)
