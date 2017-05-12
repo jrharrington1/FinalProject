@@ -3,6 +3,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import javax.swing.*;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Write a description of class Client here.
@@ -10,7 +11,7 @@ import java.util.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Client
+public class Client 
 {
     //public int[][] placement;
     //Board player1 = new Board();
@@ -21,8 +22,9 @@ public class Client
     /**
      * Default constructor for objects of class Client
      */
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
+        
         //defines scanner
 
         Scanner user_input = new Scanner(System.in);
@@ -30,14 +32,14 @@ public class Client
             
     
         System.out.println("Player 1, what is your name?");
-        System.out.println(" ");
         name = user_input.nextLine();
         player1 = new Board(name);
-    
+        place1 = new Board(name + "'s board");
+        
         System.out.println("Player 2, what is your name?");
-        System.out.println(" ");
-        name1 = user_input.nextLine();        
+        name1 = user_input.nextLine();
         player2 = new Board(name1);
+        place2 = new Board(name1 + "'s board");
 
         Battleship placement  = new Battleship(2);
         Battleship placement1  = new Battleship(3);
@@ -86,7 +88,10 @@ public class Client
         
         System.out.println("Ok " + name + " Your board is");
         player1.viewBoard();
+        System.out.println(" ");
         
+            
+
         
 
         Battleship placement4  = new Battleship(2);
@@ -136,6 +141,7 @@ public class Client
         
         System.out.println("Ok " + name1 + " Your board is");
         player2.viewBoard();
+        System.out.println("");
         turn(1);
         
 
@@ -146,22 +152,34 @@ public class Client
     public static void turn(int n)
     {
         Scanner user_input = new Scanner(System.in);
+        
         if (player2.goBoard() > 0){
             if (n % 2 != 0)
            {
+            //Thread.sleep(1000);
             System.out.println("It is your turn " + name);
+            System.out.println("Your current board looks like this");
+            player1.viewBoard();
+            System.out.println("");
+            System.out.println("Your hit board looks like this");
+            place1.viewBoard();
+            System.out.println(" ");
             System.out.println("What x-cordinate do you want to target");
             int hit = user_input.nextInt();
             System.out.println("What y-cordinate do you want to target");
             int hit1 = user_input.nextInt();
+            System.out.println(" ");
             boolean wow =  player2.fire(hit,hit1);
             if (wow == true)
                 System.out.println("Wow you got a hit");
             else
                 System.out.println("Sorry you did not get a hit");
             player2.updateBoard(wow, hit, hit1);
-            System.out.println(name1 + "'s board now looks like: ");
-            player2.viewBoard();
+            place1.updateBoard(wow,hit,hit1);
+            System.out.println(" ");
+            System.out.println("Your hit board now looks like: ");
+            place1.viewBoard();
+            System.out.println(" ");
             n++;
             turn(n);
            }
@@ -174,6 +192,12 @@ public class Client
             if (n % 2 == 0)
             {
                 System.out.println("It is your turn " + name1);
+                 System.out.println("Your current board looks like this");
+                 player2.viewBoard();
+                 System.out.println("");
+                 System.out.println("Your hit board looks like this");
+                 place2.viewBoard();
+                 System.out.println(" ");
                 System.out.println("What x-cordinate do you want to target");
                 int hit2 = user_input.nextInt();
                 System.out.println("What y-cordinate do you want to target");
@@ -183,9 +207,11 @@ public class Client
                     System.out.println("Wow you got a hit");
                 else
                     System.out.println("Sorry you did not get a hit");
-                System.out.println(name + "'s board now looks like: ");
                 player1.updateBoard(wow, hit2, hit3);
-                player1.viewBoard();
+                place2.updateBoard(wow,hit2,hit3);
+                System.out.println("Your hit board now looks like: ");
+                place2.viewBoard();
+                System.out.println("");
                 n++;
                 turn(n);
             }
@@ -194,6 +220,6 @@ public class Client
             System.out.println("Congrats " + name1+ " you win");
     }
 
-    
-
 }
+
+
