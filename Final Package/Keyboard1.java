@@ -8,6 +8,7 @@ public class Keyboard1 extends Applet
    int width, height;
    int x, y;
    String s = "";
+   
 
    public void init() {
       width = getSize().width;
@@ -16,13 +17,34 @@ public class Keyboard1 extends Applet
 
       x = width/2;
       y = height/2;
+      
+    
+      
 
       addKeyListener( this );
       addMouseListener( this );
+      
+      setFocusable(true);
    }
 
-   public void keyPressed( KeyEvent e ) { }
-   public void keyReleased( KeyEvent e ) { }
+   public void keyPressed( KeyEvent e ) 
+   {
+       char c = e.getKeyChar();
+      if ( c != KeyEvent.CHAR_UNDEFINED ) {
+         s = s + c;
+         repaint();
+         e.consume();
+      }
+    }
+   public void keyReleased( KeyEvent e )
+   {
+       char c = e.getKeyChar();
+      if ( c != KeyEvent.CHAR_UNDEFINED ) {
+         s = s + c;
+         repaint();
+         e.consume();
+      }
+    }
    public void keyTyped( KeyEvent e ) {
       char c = e.getKeyChar();
       if ( c != KeyEvent.CHAR_UNDEFINED ) {
@@ -43,12 +65,17 @@ public class Keyboard1 extends Applet
       repaint();
       e.consume();
    }
-
+   
    public void paint( Graphics g ) {
-      g.setColor( Color.gray );
-      g.drawLine( x, y, x, y-10 );
-      g.drawLine( x, y, x+10, y );
-      g.setColor( Color.green );
-      g.drawString( s, x, y );
-   }
-}
+       
+      
+          g.setColor( Color.gray );
+          g.drawLine( x, y, x, y-10 );
+          g.drawLine( x, y, x+10, y );
+          g.setColor( Color.green );
+          g.drawString( s, x, y );
+     
+        
+   
+        }
+    }

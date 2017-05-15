@@ -5,13 +5,18 @@ import java.util.*;
 public class Battleship
 {
     int length; 
+    int direction;
+    int x;
+    int y;
     
     public Battleship(int length)
     {
         this.length = length;
+        direction = 0;
     }
     
-    public void placeBattleship(int xcoordinate, int ycoordinate, int directions, Board playingfield){
+    public void placeBattleship(int xcoordinate, int ycoordinate, int directions, Board playingfield)
+    {
         
         int x = xcoordinate;
         int y = ycoordinate;
