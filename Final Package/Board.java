@@ -33,7 +33,7 @@ public class Board
     public Board(String name)
     {
         this.name = name;
-        bullets = 5;
+        bullets = 20;
     }
     
     public boolean fire(int c, int r)

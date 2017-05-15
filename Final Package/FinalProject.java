@@ -27,7 +27,7 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
     String completeinput = "";
     
     int screen = 0;
-    
+    int hitscreen = 0;
 
     /**
      * Called by the browser or applet viewer to inform this JApplet that it
@@ -1002,18 +1002,23 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
                         
                 g.setColor(Color.green);
                        
-                g.drawString(">" + Player2.name + " please enter the x-coordinate for your Destroyer (Ship size: 2)", 320, 495);
+                g.drawString(">" + Player1.name + ", please press \";\" to let " + Player2.name + " place their ships.", 320, 495);
                 g.drawString(">" + userinput,320,505);
             }
             
              
             else if (screen == 18)
             {
+                g.drawString(">" + Player2.name + ",please pick the x-coordinate for your Destroyer (Ship size: 2)", 320, 495);
+                g.drawString(">" + userinput, 320, 505);
+            }
+            else if (screen == 19)
+            {
               g.drawString(">" + Player2.name + ", please pick the y-coordinate for your Destroyer (Ship size: 2)", 320, 495);
               g.drawString(">" + userinput, 320, 505);
               Player2.destroyer.x = completeinput.charAt(0) - 48;
             }
-            else if (screen == 19)
+            else if (screen == 20)
             {
 
                g.drawString(">" + Player2.name + ", please pick the direction your Destroyer is facing.", 320, 495);
@@ -1022,7 +1027,7 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
                Player2.destroyer.y = completeinput.charAt(0) - 48;
                
             }
-            else if (screen == 20)
+            else if (screen == 21)
             {
                
                g.drawString(">" + Player2.name + ", please pick the x-coordinate your Cruiser (Ship size: 3)",320,495);
@@ -1051,7 +1056,7 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
                     
                     
             }
-            else if (screen == 21)
+            else if (screen == 22)
             {
                 g.setColor(Color.LIGHT_GRAY);
                 if ( Player2.destroyer.direction == 1)
@@ -1323,180 +1328,180 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
                        }
                        else if (Player2.cruiser.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player2.cruiser.x), 50 + (40 * (Player1.cruiser.y)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.cruiser.x), 50 + (40 * (Player2.cruiser.y)), 41, 124);
                        }
-                       else if ( Player1.cruiser.direction == 3)
+                       else if ( Player2.cruiser.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.cruiser.x), 50 + (40 * (Player1.cruiser.y )), 123, 41);
+                           g.fillRect(50 + (40 * Player2.cruiser.x), 50 + (40 * (Player2.cruiser.y )), 123, 41);
                        }
-                       else if (Player1.cruiser.direction == 4)
+                       else if (Player2.cruiser.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.cruiser.x - 2)), 50 + (40 * (Player1.cruiser.y)), 123, 41);
+                           g.fillRect(50 + (40 * (Player2.cruiser.x - 2)), 50 + (40 * (Player2.cruiser.y)), 123, 41);
                        }
                        
-                       if ( Player1.submarine.direction == 1)
+                       if ( Player2.submarine.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.submarine.x),50 + (40 * (Player1.submarine.y - 2)), 41, 123);
+                           g.fillRect(50 + (40 * Player2.submarine.x),50 + (40 * (Player2.submarine.y - 2)), 41, 123);
                        }
-                       else if (Player1.submarine.direction == 2)
+                       else if (Player2.submarine.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.submarine.x), 50 + (40 * (Player2.submarine.y)), 41, 124);
                        }
-                       else if ( Player1.submarine.direction == 3)
+                       else if ( Player2.submarine.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y )), 123, 41);
+                           g.fillRect(50 + (40 * Player2.submarine.x), 50 + (40 * (Player2.submarine.y )), 123, 41);
                        }
-                       else if (Player1.submarine.direction == 4)
+                       else if (Player2.submarine.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.submarine.x - 2)), 50 + (40 * (Player1.submarine.y)), 123, 41);
+                           g.fillRect(50 + (40 * (Player2.submarine.x - 2)), 50 + (40 * (Player2.submarine.y)), 123, 41);
                        }
                    g.setColor(Color.green);
                    
                    
                    
-              g.drawString(">" + Player1.name + ", please pick the y-coordinate your Battleship (Ship size: 4)",320,495);      
+              g.drawString(">" + Player2.name + ", please pick the y-coordinate your Battleship (Ship size: 4)",320,495);      
               g.drawString(">" + userinput, 320, 505);
-              Player1.battleship.x = completeinput.charAt(0) - 48;
+              Player2.battleship.x = completeinput.charAt(0) - 48;
             }
             else if (screen == 29)
             {
                g.setColor(Color.LIGHT_GRAY);
-                  if ( Player1.destroyer.direction == 1)
+                  if ( Player2.destroyer.direction == 1)
                    {              
-                       g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y - 1)), 41, 82);
+                       g.fillRect(50 + (40 * Player2.destroyer.x),50 + (40 * (Player2.destroyer.y - 1)), 41, 82);
                    }
-                   else if (Player1.destroyer.direction == 2)
+                   else if (Player2.destroyer.direction == 2)
                    {
-                       g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y )), 41, 82);
+                       g.fillRect(50 + (40 * Player2.destroyer.x),50 + (40 * (Player2.destroyer.y )), 41, 82);
                    }
-                   else if ( Player1.destroyer.direction == 3)
+                   else if ( Player2.destroyer.direction == 3)
                    {              
-                       g.fillRect(50 + (40 * (Player1.destroyer.x)),50 + (40 * (Player1.destroyer.y )), 82, 41);
+                       g.fillRect(50 + (40 * (Player2.destroyer.x)),50 + (40 * (Player2.destroyer.y )), 82, 41);
                    }
-                   else if (Player1.destroyer.direction == 4)
+                   else if (Player2.destroyer.direction == 4)
                    {
-                       g.fillRect(50 + (40 * (Player1.destroyer.x - 1)),50 + (40 * (Player1.destroyer.y)), 82, 41);
+                       g.fillRect(50 + (40 * (Player2.destroyer.x - 1)),50 + (40 * (Player2.destroyer.y)), 82, 41);
                    }
                    
                    
-                   if ( Player1.cruiser.direction == 1)
+                   if ( Player2.cruiser.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.cruiser.x),50 + (40 * (Player1.cruiser.y - 2)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.cruiser.x),50 + (40 * (Player2.cruiser.y - 2)), 41, 124);
                        }
-                       else if (Player1.cruiser.direction == 2)
+                       else if (Player2.cruiser.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.cruiser.x), 50 + (40 * (Player1.cruiser.y)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.cruiser.x), 50 + (40 * (Player2.cruiser.y)), 41, 124);
                        }
-                       else if ( Player1.cruiser.direction == 3)
+                       else if ( Player2.cruiser.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.cruiser.x), 50 + (40 * (Player1.cruiser.y )), 123, 41);
+                           g.fillRect(50 + (40 * Player2.cruiser.x), 50 + (40 * (Player2.cruiser.y )), 123, 41);
                        }
-                       else if (Player1.cruiser.direction == 4)
+                       else if (Player2.cruiser.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.cruiser.x - 2)), 50 + (40 * (Player1.cruiser.y)), 123, 41);
+                           g.fillRect(50 + (40 * (Player2.cruiser.x - 2)), 50 + (40 * (Player2.cruiser.y)), 123, 41);
                        }
                        
-                       if ( Player1.submarine.direction == 1)
+                       if ( Player2.submarine.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.submarine.x),50 + (40 * (Player1.submarine.y - 2)), 41, 123);
+                           g.fillRect(50 + (40 * Player2.submarine.x),50 + (40 * (Player2.submarine.y - 2)), 41, 123);
                        }
-                       else if (Player1.submarine.direction == 2)
+                       else if (Player2.submarine.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.submarine.x), 50 + (40 * (Player2.submarine.y)), 41, 124);
                        }
-                       else if ( Player1.submarine.direction == 3)
+                       else if ( Player2.submarine.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y )), 123, 41);
+                           g.fillRect(50 + (40 * Player2.submarine.x), 50 + (40 * (Player2.submarine.y )), 123, 41);
                        }
-                       else if (Player1.submarine.direction == 4)
+                       else if (Player2.submarine.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.submarine.x - 2)), 50 + (40 * (Player1.submarine.y)), 123, 41);
+                           g.fillRect(50 + (40 * (Player2.submarine.x - 2)), 50 + (40 * (Player2.submarine.y)), 123, 41);
                        }
                g.setColor(Color.green);
               
-               g.drawString(">" + Player1.name + ", please pick the direction your Battleship is facing.", 320, 495);
+               g.drawString(">" + Player2.name + ", please pick the direction your Battleship is facing.", 320, 495);
                g.drawString(">1: North, 2: South, 3: East, 4: West", 320, 505);
                g.drawString(">" + userinput, 320, 515);
-               Player1.battleship.y = completeinput.charAt(0) - 48;
+               Player2.battleship.y = completeinput.charAt(0) - 48;
             }
             else if (screen == 30)
             {
                      g.setColor(Color.LIGHT_GRAY);
-                     if ( Player1.destroyer.direction == 1)
+                     if ( Player2.destroyer.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y - 1)), 41, 82);
+                           g.fillRect(50 + (40 * Player2.destroyer.x),50 + (40 * (Player2.destroyer.y - 1)), 41, 82);
                        }
-                       else if (Player1.destroyer.direction == 2)
+                       else if (Player2.destroyer.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y)), 41, 82);
+                           g.fillRect(50 + (40 * Player2.destroyer.x),50 + (40 * (Player2.destroyer.y)), 41, 82);
                        }
-                       else if ( Player1.destroyer.direction == 3)
+                       else if ( Player2.destroyer.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y )), 82, 41);
+                           g.fillRect(50 + (40 * Player2.destroyer.x),50 + (40 * (Player2.destroyer.y )), 82, 41);
                        }
-                       else if (Player1.destroyer.direction == 4)
+                       else if (Player2.destroyer.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.destroyer.x -1 )),50 + (40 * (Player1.destroyer.y)), 82, 41);
+                           g.fillRect(50 + (40 * (Player2.destroyer.x -1 )),50 + (40 * (Player2.destroyer.y)), 82, 41);
                        }
                       
-                      if ( Player1.cruiser.direction == 1)
+                      if ( Player2.cruiser.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.cruiser.x),50 + (40 * (Player1.cruiser.y - 2)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.cruiser.x),50 + (40 * (Player2.cruiser.y - 2)), 41, 124);
                        }
-                       else if (Player1.cruiser.direction == 2)
+                       else if (Player2.cruiser.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.cruiser.x), 50 + (40 * (Player1.cruiser.y)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.cruiser.x), 50 + (40 * (Player2.cruiser.y)), 41, 124);
                        }
-                       else if ( Player1.cruiser.direction == 3)
+                       else if ( Player2.cruiser.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.cruiser.x), 50 + (40 * (Player1.cruiser.y )), 123, 41);
+                           g.fillRect(50 + (40 * Player2.cruiser.x), 50 + (40 * (Player2.cruiser.y )), 123, 41);
                        }
-                       else if (Player1.cruiser.direction == 4)
+                       else if (Player2.cruiser.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.cruiser.x - 2)), 50 + (40 * (Player1.cruiser.y)), 123, 41);
+                           g.fillRect(50 + (40 * (Player2.cruiser.x - 2)), 50 + (40 * (Player2.cruiser.y)), 123, 41);
                        }
                        
                        
                        
-                       if ( Player1.submarine.direction == 1)
+                       if ( Player2.submarine.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.submarine.x),50 + (40 * (Player1.submarine.y - 2)), 41, 123);
+                           g.fillRect(50 + (40 * Player2.submarine.x),50 + (40 * (Player2.submarine.y - 2)), 41, 123);
                        }
-                       else if (Player1.submarine.direction == 2)
+                       else if (Player2.submarine.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.submarine.x), 50 + (40 * (Player2.submarine.y)), 41, 124);
                        }
-                       else if ( Player1.submarine.direction == 3)
+                       else if ( Player2.submarine.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y )), 123, 41);
+                           g.fillRect(50 + (40 * Player2.submarine.x), 50 + (40 * (Player2.submarine.y )), 123, 41);
                        }
-                       else if (Player1.submarine.direction == 4)
+                       else if (Player2.submarine.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.submarine.x - 2)), 50 + (40 * (Player1.submarine.y)), 123, 41);
+                           g.fillRect(50 + (40 * (Player2.submarine.x - 2)), 50 + (40 * (Player2.submarine.y)), 123, 41);
                        }
                        
-                       Player1.battleship.direction = completeinput.charAt(0)-48;
+                       Player2.battleship.direction = completeinput.charAt(0)-48;
                        
-                         if ( Player1.battleship.direction == 1)
+                         if ( Player2.battleship.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.battleship.x),50 + (40 * (Player1.battleship.y - 3)), 41, 164);
+                           g.fillRect(50 + (40 * Player2.battleship.x),50 + (40 * (Player2.battleship.y - 3)), 41, 164);
                        }
-                       else if (Player1.battleship.direction == 2)
+                       else if (Player2.battleship.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.battleship.x), 50 + (40 * (Player1.battleship.y)), 41, 164);
+                           g.fillRect(50 + (40 * Player2.battleship.x), 50 + (40 * (Player2.battleship.y)), 41, 164);
                        }
-                       else if ( Player1.battleship.direction == 3)
+                       else if ( Player2.battleship.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.battleship.x), 50 + (40 * (Player1.battleship.y )), 164, 41);
+                           g.fillRect(50 + (40 * Player2.battleship.x), 50 + (40 * (Player2.battleship.y )), 164, 41);
                        }
-                       else if (Player1.battleship.direction == 4)
+                       else if (Player2.battleship.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.battleship.x - 3)), 50 + (40 * (Player1.battleship.y)), 164, 41);
+                           g.fillRect(50 + (40 * (Player2.battleship.x - 3)), 50 + (40 * (Player2.battleship.y)), 164, 41);
                        }
                        
                 g.setColor(Color.green);
                        
-                g.drawString(">" + Player1.name + " please enter the x-coordinate of your Carrier (Ship size: 5)", 320, 495);
+                g.drawString(">" + Player2.name + " please enter the x-coordinate of your Carrier (Ship size: 5)", 320, 495);
                 g.drawString(">" + userinput, 320, 505);
             }
             
@@ -1507,252 +1512,252 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
                 else if (screen == 31)
             {
                 g.setColor(Color.LIGHT_GRAY);
-                if ( Player1.destroyer.direction == 1)
+                if ( Player2.destroyer.direction == 1)
                    {              
-                       g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y - 1)), 41, 82);
+                       g.fillRect(50 + (40 * Player2.destroyer.x),50 + (40 * (Player2.destroyer.y - 1)), 41, 82);
                    }
-                   else if (Player1.destroyer.direction == 2)
+                   else if (Player2.destroyer.direction == 2)
                    {
-                       g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y)), 41, 82);
+                       g.fillRect(50 + (40 * Player2.destroyer.x),50 + (40 * (Player2.destroyer.y)), 41, 82);
                    }
-                   else if ( Player1.destroyer.direction == 3)
+                   else if ( Player2.destroyer.direction == 3)
                    {              
-                       g.fillRect(50 + (40 * (Player1.destroyer.x)),50 + (40 * (Player1.destroyer.y )), 82, 41);
+                       g.fillRect(50 + (40 * (Player2.destroyer.x)),50 + (40 * (Player2.destroyer.y )), 82, 41);
                    }
-                   else if (Player1.destroyer.direction == 4)
+                   else if (Player2.destroyer.direction == 4)
                    {
-                       g.fillRect(50 + (40 * (Player1.destroyer.x - 1)),50 + (40 * (Player1.destroyer.y)), 82, 41);
+                       g.fillRect(50 + (40 * (Player2.destroyer.x - 1)),50 + (40 * (Player2.destroyer.y)), 82, 41);
                    }
-                   if ( Player1.cruiser.direction == 1)
+                   if ( Player2.cruiser.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.cruiser.x),50 + (40 * (Player1.cruiser.y - 2)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.cruiser.x),50 + (40 * (Player2.cruiser.y - 2)), 41, 124);
                        }
-                       else if (Player1.cruiser.direction == 2)
+                       else if (Player2.cruiser.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.cruiser.x), 50 + (40 * (Player1.cruiser.y)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.cruiser.x), 50 + (40 * (Player2.cruiser.y)), 41, 124);
                        }
-                       else if ( Player1.cruiser.direction == 3)
+                       else if ( Player2.cruiser.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.cruiser.x), 50 + (40 * (Player1.cruiser.y )), 123, 41);
+                           g.fillRect(50 + (40 * Player2.cruiser.x), 50 + (40 * (Player2.cruiser.y )), 123, 41);
                        }
-                       else if (Player1.cruiser.direction == 4)
+                       else if (Player2.cruiser.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.cruiser.x - 2)), 50 + (40 * (Player1.cruiser.y)), 123, 41);
+                           g.fillRect(50 + (40 * (Player2.cruiser.x - 2)), 50 + (40 * (Player2.cruiser.y)), 123, 41);
                        }
                        
-                       if ( Player1.submarine.direction == 1)
+                       if ( Player2.submarine.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.submarine.x),50 + (40 * (Player1.submarine.y - 2)), 41, 123);
+                           g.fillRect(50 + (40 * Player2.submarine.x),50 + (40 * (Player2.submarine.y - 2)), 41, 123);
                        }
-                       else if (Player1.submarine.direction == 2)
+                       else if (Player2.submarine.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.submarine.x), 50 + (40 * (Player2.submarine.y)), 41, 124);
                        }
-                       else if ( Player1.submarine.direction == 3)
+                       else if ( Player2.submarine.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y )), 123, 41);
+                           g.fillRect(50 + (40 * Player2.submarine.x), 50 + (40 * (Player2.submarine.y )), 123, 41);
                        }
-                       else if (Player1.submarine.direction == 4)
+                       else if (Player2.submarine.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.submarine.x - 2)), 50 + (40 * (Player1.submarine.y)), 123, 41);
+                           g.fillRect(50 + (40 * (Player2.submarine.x - 2)), 50 + (40 * (Player2.submarine.y)), 123, 41);
                        }
                        
-                            if ( Player1.battleship.direction == 1)
+                            if ( Player2.battleship.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.battleship.x),50 + (40 * (Player1.battleship.y - 3)), 41, 164);
+                           g.fillRect(50 + (40 * Player2.battleship.x),50 + (40 * (Player2.battleship.y - 3)), 41, 164);
                        }
-                       else if (Player1.battleship.direction == 2)
+                       else if (Player2.battleship.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.battleship.x), 50 + (40 * (Player1.battleship.y)), 41, 164);
+                           g.fillRect(50 + (40 * Player2.battleship.x), 50 + (40 * (Player2.battleship.y)), 41, 164);
                        }
-                       else if ( Player1.battleship.direction == 3)
+                       else if ( Player2.battleship.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.battleship.x), 50 + (40 * (Player1.battleship.y )), 164, 41);
+                           g.fillRect(50 + (40 * Player2.battleship.x), 50 + (40 * (Player2.battleship.y )), 164, 41);
                        }
-                       else if (Player1.battleship.direction == 4)
+                       else if (Player2.battleship.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.battleship.x - 3)), 50 + (40 * (Player1.battleship.y)), 164, 41);
+                           g.fillRect(50 + (40 * (Player2.battleship.x - 3)), 50 + (40 * (Player2.battleship.y)), 164, 41);
                        }
                    g.setColor(Color.green);
                    
                    
                    
-              g.drawString(">" + Player1.name + ", please pick the y-coordinate your Carrier (Ship size: 5)",320,495);      
+              g.drawString(">" + Player2.name + ", please pick the y-coordinate your Carrier (Ship size: 5)",320,495);      
               g.drawString(">" + userinput, 320, 505);
-              Player1.carrier.x = completeinput.charAt(0) - 48;
+              Player2.carrier.x = completeinput.charAt(0) - 48;
             }
             else if (screen == 32)
             {
                g.setColor(Color.LIGHT_GRAY);
-                  if ( Player1.destroyer.direction == 1)
+                  if ( Player2.destroyer.direction == 1)
                    {              
-                       g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y - 1)), 41, 82);
+                       g.fillRect(50 + (40 * Player2.destroyer.x),50 + (40 * (Player2.destroyer.y - 1)), 41, 82);
                    }
-                   else if (Player1.destroyer.direction == 2)
+                   else if (Player2.destroyer.direction == 2)
                    {
-                       g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y )), 41, 82);
+                       g.fillRect(50 + (40 * Player2.destroyer.x),50 + (40 * (Player2.destroyer.y )), 41, 82);
                    }
-                   else if ( Player1.destroyer.direction == 3)
+                   else if ( Player2.destroyer.direction == 3)
                    {              
-                       g.fillRect(50 + (40 * (Player1.destroyer.x)),50 + (40 * (Player1.destroyer.y )), 82, 41);
+                       g.fillRect(50 + (40 * (Player2.destroyer.x)),50 + (40 * (Player2.destroyer.y )), 82, 41);
                    }
-                   else if (Player1.destroyer.direction == 4)
+                   else if (Player2.destroyer.direction == 4)
                    {
-                       g.fillRect(50 + (40 * (Player1.destroyer.x - 1)),50 + (40 * (Player1.destroyer.y)), 82, 41);
+                       g.fillRect(50 + (40 * (Player2.destroyer.x - 1)),50 + (40 * (Player2.destroyer.y)), 82, 41);
                    }
                    
                    
-                   if ( Player1.cruiser.direction == 1)
+                   if ( Player2.cruiser.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.cruiser.x),50 + (40 * (Player1.cruiser.y - 2)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.cruiser.x),50 + (40 * (Player2.cruiser.y - 2)), 41, 124);
                        }
-                       else if (Player1.cruiser.direction == 2)
+                       else if (Player2.cruiser.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.cruiser.x), 50 + (40 * (Player1.cruiser.y)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.cruiser.x), 50 + (40 * (Player2.cruiser.y)), 41, 124);
                        }
-                       else if ( Player1.cruiser.direction == 3)
+                       else if ( Player2.cruiser.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.cruiser.x), 50 + (40 * (Player1.cruiser.y )), 123, 41);
+                           g.fillRect(50 + (40 * Player2.cruiser.x), 50 + (40 * (Player2.cruiser.y )), 123, 41);
                        }
-                       else if (Player1.cruiser.direction == 4)
+                       else if (Player2.cruiser.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.cruiser.x - 2)), 50 + (40 * (Player1.cruiser.y)), 123, 41);
+                           g.fillRect(50 + (40 * (Player2.cruiser.x - 2)), 50 + (40 * (Player2.cruiser.y)), 123, 41);
                        }
                        
-                       if ( Player1.submarine.direction == 1)
+                       if ( Player2.submarine.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.submarine.x),50 + (40 * (Player1.submarine.y - 2)), 41, 123);
+                           g.fillRect(50 + (40 * Player2.submarine.x),50 + (40 * (Player2.submarine.y - 2)), 41, 123);
                        }
-                       else if (Player1.submarine.direction == 2)
+                       else if (Player2.submarine.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.submarine.x), 50 + (40 * (Player2.submarine.y)), 41, 124);
                        }
-                       else if ( Player1.submarine.direction == 3)
+                       else if ( Player2.submarine.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y )), 123, 41);
+                           g.fillRect(50 + (40 * Player2.submarine.x), 50 + (40 * (Player2.submarine.y )), 123, 41);
                        }
-                       else if (Player1.submarine.direction == 4)
+                       else if (Player2.submarine.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.submarine.x - 2)), 50 + (40 * (Player1.submarine.y)), 123, 41);
+                           g.fillRect(50 + (40 * (Player2.submarine.x - 2)), 50 + (40 * (Player2.submarine.y)), 123, 41);
                        }
                        
-                            if ( Player1.battleship.direction == 1)
+                            if ( Player2.battleship.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.battleship.x),50 + (40 * (Player1.battleship.y - 3)), 41, 164);
+                           g.fillRect(50 + (40 * Player2.battleship.x),50 + (40 * (Player2.battleship.y - 3)), 41, 164);
                        }
-                       else if (Player1.battleship.direction == 2)
+                       else if (Player2.battleship.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.battleship.x), 50 + (40 * (Player1.battleship.y)), 41, 164);
+                           g.fillRect(50 + (40 * Player2.battleship.x), 50 + (40 * (Player2.battleship.y)), 41, 164);
                        }
-                       else if ( Player1.battleship.direction == 3)
+                       else if ( Player2.battleship.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.battleship.x), 50 + (40 * (Player1.battleship.y )), 164, 41);
+                           g.fillRect(50 + (40 * Player2.battleship.x), 50 + (40 * (Player2.battleship.y )), 164, 41);
                        }
-                       else if (Player1.battleship.direction == 4)
+                       else if (Player2.battleship.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.battleship.x - 3)), 50 + (40 * (Player1.battleship.y)), 164, 41);
+                           g.fillRect(50 + (40 * (Player2.battleship.x - 3)), 50 + (40 * (Player2.battleship.y)), 164, 41);
                        }
                g.setColor(Color.green);
               
-               g.drawString(">" + Player1.name + ", please pick the direction your Carrier is facing.", 320, 495);
+               g.drawString(">" + Player2.name + ", please pick the direction your Carrier is facing.", 320, 495);
                g.drawString(">1: North, 2: South, 3: East, 4: West", 320, 505);
                g.drawString(">" + userinput, 320, 515);
-               Player1.carrier.y = completeinput.charAt(0) - 48;
+               Player2.carrier.y = completeinput.charAt(0) - 48;
             }
             else if (screen == 33)
             {
                      g.setColor(Color.LIGHT_GRAY);
-                     if ( Player1.destroyer.direction == 1)
+                     if ( Player2.destroyer.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y - 1)), 41, 82);
+                           g.fillRect(50 + (40 * Player2.destroyer.x),50 + (40 * (Player2.destroyer.y - 1)), 41, 82);
                        }
-                       else if (Player1.destroyer.direction == 2)
+                       else if (Player2.destroyer.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y)), 41, 82);
+                           g.fillRect(50 + (40 * Player2.destroyer.x),50 + (40 * (Player2.destroyer.y)), 41, 82);
                        }
-                       else if ( Player1.destroyer.direction == 3)
+                       else if ( Player2.destroyer.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y )), 82, 41);
+                           g.fillRect(50 + (40 * Player2.destroyer.x),50 + (40 * (Player2.destroyer.y )), 82, 41);
                        }
-                       else if (Player1.destroyer.direction == 4)
+                       else if (Player2.destroyer.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.destroyer.x -1 )),50 + (40 * (Player1.destroyer.y)), 82, 41);
+                           g.fillRect(50 + (40 * (Player2.destroyer.x -1 )),50 + (40 * (Player2.destroyer.y)), 82, 41);
                        }
                       
-                      if ( Player1.cruiser.direction == 1)
+                      if ( Player2.cruiser.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.cruiser.x),50 + (40 * (Player1.cruiser.y - 2)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.cruiser.x),50 + (40 * (Player2.cruiser.y - 2)), 41, 124);
                        }
-                       else if (Player1.cruiser.direction == 2)
+                       else if (Player2.cruiser.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.cruiser.x), 50 + (40 * (Player1.cruiser.y)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.cruiser.x), 50 + (40 * (Player2.cruiser.y)), 41, 124);
                        }
-                       else if ( Player1.cruiser.direction == 3)
+                       else if ( Player2.cruiser.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.cruiser.x), 50 + (40 * (Player1.cruiser.y )), 123, 41);
+                           g.fillRect(50 + (40 * Player2.cruiser.x), 50 + (40 * (Player2.cruiser.y )), 123, 41);
                        }
-                       else if (Player1.cruiser.direction == 4)
+                       else if (Player2.cruiser.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.cruiser.x - 2)), 50 + (40 * (Player1.cruiser.y)), 123, 41);
+                           g.fillRect(50 + (40 * (Player2.cruiser.x - 2)), 50 + (40 * (Player2.cruiser.y)), 123, 41);
                        }
                        
                        
                        
-                       if ( Player1.submarine.direction == 1)
+                       if ( Player2.submarine.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.submarine.x),50 + (40 * (Player1.submarine.y - 2)), 41, 123);
+                           g.fillRect(50 + (40 * Player2.submarine.x),50 + (40 * (Player2.submarine.y - 2)), 41, 123);
                        }
-                       else if (Player1.submarine.direction == 2)
+                       else if (Player2.submarine.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y)), 41, 124);
+                           g.fillRect(50 + (40 * Player2.submarine.x), 50 + (40 * (Player2.submarine.y)), 41, 124);
                        }
-                       else if ( Player1.submarine.direction == 3)
+                       else if ( Player2.submarine.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y )), 123, 41);
+                           g.fillRect(50 + (40 * Player2.submarine.x), 50 + (40 * (Player2.submarine.y )), 123, 41);
                        }
-                       else if (Player1.submarine.direction == 4)
+                       else if (Player2.submarine.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.submarine.x - 2)), 50 + (40 * (Player1.submarine.y)), 123, 41);
+                           g.fillRect(50 + (40 * (Player2.submarine.x - 2)), 50 + (40 * (Player2.submarine.y)), 123, 41);
                        }
                        
                      
-                         if ( Player1.battleship.direction == 1)
+                         if ( Player2.battleship.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.battleship.x),50 + (40 * (Player1.battleship.y - 3)), 41, 164);
+                           g.fillRect(50 + (40 * Player2.battleship.x),50 + (40 * (Player2.battleship.y - 3)), 41, 164);
                        }
-                       else if (Player1.battleship.direction == 2)
+                       else if (Player2.battleship.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.battleship.x), 50 + (40 * (Player1.battleship.y)), 41, 164);
+                           g.fillRect(50 + (40 * Player2.battleship.x), 50 + (40 * (Player2.battleship.y)), 41, 164);
                        }
-                       else if ( Player1.battleship.direction == 3)
+                       else if ( Player2.battleship.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.battleship.x), 50 + (40 * (Player1.battleship.y )), 164, 41);
+                           g.fillRect(50 + (40 * Player2.battleship.x), 50 + (40 * (Player2.battleship.y )), 164, 41);
                        }
-                       else if (Player1.battleship.direction == 4)
+                       else if (Player2.battleship.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.battleship.x - 3)), 50 + (40 * (Player1.battleship.y)), 164, 41);
+                           g.fillRect(50 + (40 * (Player2.battleship.x - 3)), 50 + (40 * (Player2.battleship.y)), 164, 41);
                        }
                        
-                        Player1.carrier.direction = completeinput.charAt(0)-48;
+                        Player2.carrier.direction = completeinput.charAt(0)-48;
                         
                         
                         
                         
-                             if ( Player1.carrier.direction == 1)
+                             if ( Player2.carrier.direction == 1)
                        {              
-                           g.fillRect(50 + (40 * Player1.carrier.x),50 + (40 * (Player1.carrier.y - 4)), 41, 205);
+                           g.fillRect(50 + (40 * Player2.carrier.x),50 + (40 * (Player2.carrier.y - 4)), 41, 205);
                        }
-                       else if (Player1.carrier.direction == 2)
+                       else if (Player2.carrier.direction == 2)
                        {
-                           g.fillRect(50 + (40 * Player1.carrier.x), 50 + (40 * (Player1.carrier.y)), 41, 205);
+                           g.fillRect(50 + (40 * Player2.carrier.x), 50 + (40 * (Player2.carrier.y)), 41, 205);
                        }
-                       else if ( Player1.carrier.direction == 3)
+                       else if ( Player2.carrier.direction == 3)
                        {              
-                           g.fillRect(50 + (40 * Player1.carrier.x), 50 + (40 * (Player1.carrier.y )), 205, 41);
+                           g.fillRect(50 + (40 * Player2.carrier.x), 50 + (40 * (Player2.carrier.y )), 205, 41);
                        }
-                       else if (Player1.carrier.direction == 4)
+                       else if (Player2.carrier.direction == 4)
                        {
-                           g.fillRect(50 + (40 * (Player1.carrier.x - 4)), 50 + (40 * (Player1.carrier.y)), 205, 41);
+                           g.fillRect(50 + (40 * (Player2.carrier.x - 4)), 50 + (40 * (Player2.carrier.y)), 205, 41);
                        }
                        
                        
@@ -1762,9 +1767,119 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
                         
                 g.setColor(Color.green);
                        
-                g.drawString(">" + Player1.name + " please enter \";\" to let " + Player2.name + " place their ships.", 320, 495);
+                g.drawString(">Press \";\" to begin the game!", 320, 495);
                 g.drawString(">",320,505);
             }
+            
+            else if (screen == 34)
+{
+
+                int firescreen = hitscreen;
+                
+                if (firescreen / 2 == 0)
+                {
+                                        
+                    
+                                    g.setColor(Color.LIGHT_GRAY);
+                         if ( Player1.destroyer.direction == 1)
+                           {              
+                               g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y - 1)), 41, 82);
+                           }
+                           else if (Player1.destroyer.direction == 2)
+                           {
+                               g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y)), 41, 82);
+                           }
+                           else if ( Player1.destroyer.direction == 3)
+                           {              
+                               g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y )), 82, 41);
+                           }
+                           else if (Player1.destroyer.direction == 4)
+                           {
+                               g.fillRect(50 + (40 * (Player1.destroyer.x -1 )),50 + (40 * (Player1.destroyer.y)), 82, 41);
+                           }
+                          
+                          if ( Player1.cruiser.direction == 1)
+                           {              
+                               g.fillRect(50 + (40 * Player1.cruiser.x),50 + (40 * (Player1.cruiser.y - 2)), 41, 124);
+                           }
+                           else if (Player1.cruiser.direction == 2)
+                           {
+                               g.fillRect(50 + (40 * Player1.cruiser.x), 50 + (40 * (Player1.cruiser.y)), 41, 124);
+                           }
+                           else if ( Player1.cruiser.direction == 3)
+                           {              
+                               g.fillRect(50 + (40 * Player1.cruiser.x), 50 + (40 * (Player1.cruiser.y )), 123, 41);
+                           }
+                           else if (Player1.cruiser.direction == 4)
+                           {
+                               g.fillRect(50 + (40 * (Player1.cruiser.x - 2)), 50 + (40 * (Player1.cruiser.y)), 123, 41);
+                           }
+                           
+                           
+                           
+                           if ( Player1.submarine.direction == 1)
+                           {              
+                               g.fillRect(50 + (40 * Player1.submarine.x),50 + (40 * (Player1.submarine.y - 2)), 41, 123);
+                           }
+                           else if (Player1.submarine.direction == 2)
+                           {
+                               g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y)), 41, 124);
+                           }
+                           else if ( Player1.submarine.direction == 3)
+                           {              
+                               g.fillRect(50 + (40 * Player1.submarine.x), 50 + (40 * (Player1.submarine.y )), 123, 41);
+                           }
+                           else if (Player1.submarine.direction == 4)
+                           {
+                               g.fillRect(50 + (40 * (Player1.submarine.x - 2)), 50 + (40 * (Player1.submarine.y)), 123, 41);
+                           }
+                           
+                         
+                             if ( Player1.battleship.direction == 1)
+                           {              
+                               g.fillRect(50 + (40 * Player1.battleship.x),50 + (40 * (Player1.battleship.y - 3)), 41, 164);
+                           }
+                           else if (Player1.battleship.direction == 2)
+                           {
+                               g.fillRect(50 + (40 * Player1.battleship.x), 50 + (40 * (Player1.battleship.y)), 41, 164);
+                           }
+                           else if ( Player1.battleship.direction == 3)
+                           {              
+                               g.fillRect(50 + (40 * Player1.battleship.x), 50 + (40 * (Player1.battleship.y )), 164, 41);
+                           }
+                           else if (Player1.battleship.direction == 4)
+                           {
+                               g.fillRect(50 + (40 * (Player1.battleship.x - 3)), 50 + (40 * (Player1.battleship.y)), 164, 41);
+                           }
+                           
+                            
+                                 if ( Player1.carrier.direction == 1)
+                           {              
+                               g.fillRect(50 + (40 * Player1.carrier.x),50 + (40 * (Player1.carrier.y - 4)), 41, 205);
+                           }
+                           else if (Player1.carrier.direction == 2)
+                           {
+                               g.fillRect(50 + (40 * Player1.carrier.x), 50 + (40 * (Player1.carrier.y)), 41, 205);
+                           }
+                           else if ( Player1.carrier.direction == 3)
+                           {              
+                               g.fillRect(50 + (40 * Player1.carrier.x), 50 + (40 * (Player1.carrier.y )), 205, 41);
+                           }
+                           else if (Player1.carrier.direction == 4)
+                           {
+                               g.fillRect(50 + (40 * (Player1.carrier.x - 4)), 50 + (40 * (Player1.carrier.y)), 205, 41);
+                           }
+                    
+                    g.setColor(Color.green);
+                    g.drawString(">" + Player1.name +"'s turn!", 320, 495);
+                    g.drawString(">You have " + Player1.bullets + " missiles.", 320, 505);
+                    g.drawString(">Click a box on the opposite screen to fire a missile.", 320, 515);
+                }
+                else
+                {
+                    
+                }
+        }
        }//end of game screen
     }
     
@@ -1828,6 +1943,9 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
             fireimage = false;
              repaint();
             event.consume();
+            
+            
+            
         }
         
         public void mousePressed(MouseEvent event)
