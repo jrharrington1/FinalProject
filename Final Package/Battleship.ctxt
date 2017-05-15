@@ -1,6 +1,10 @@
 #BlueJ class context
 comment0.params=length
 comment0.target=Battleship(int)
-comment1.params=xcoordinate\ ycoordinate\ directions\ playingfield
-comment1.target=void\ placeBattleship(int,\ int,\ int,\ Board)
-numComments=2
+comment1.params=length\ suborcru
+comment1.target=Battleship(int,\ int)
+comment2.params=playingfield
+comment2.target=void\ placeBattleship(Board)
+comment3.params=
+comment3.target=void\ setPegs()
+numComments=4

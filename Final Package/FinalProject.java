@@ -237,7 +237,7 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
             { 
                Player1.name = completeinput;
                g.drawString(">Welcome, " + Player1.name + "!", 320, 495);
-               g.drawString(">Player 2, what is your name", 320, 505);
+               g.drawString(">Player 2, what is your name?", 320, 505);
                g.drawString(">" + userinput, 320, 515);
             }
             else if (screen == 2)
@@ -1776,25 +1776,40 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
 
                 int firescreen = hitscreen;
                 
+                
+                
                 if (firescreen / 2 == 0)
                 {
                                         
+                    Player1.destroyer.placeBattleship(Player1);
+                    Player1.cruiser.placeBattleship(Player1);
+                    Player1.submarine.placeBattleship(Player1);
+                    Player1.battleship.placeBattleship(Player1);
+                    Player1.carrier.placeBattleship(Player1);
                     
                                     g.setColor(Color.LIGHT_GRAY);
                          if ( Player1.destroyer.direction == 1)
                            {              
                                g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y - 1)), 41, 82);
+                               
+                               Player1.destroyer.startx = 40 * Player1.destroyer.x + 550;
+                               Player1.destroyer.starty = 40 * (Player1.destroyer.x - 1) + 550;
+                               Player1.destroyer.endx = Player1.destroyer.startx + 41;
+                               Player1.destroyer.endy = Player1.destroyer.starty + 82;
                            }
                            else if (Player1.destroyer.direction == 2)
                            {
+                               
                                g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y)), 41, 82);
                            }
                            else if ( Player1.destroyer.direction == 3)
-                           {              
+                           {            
+                               
                                g.fillRect(50 + (40 * Player1.destroyer.x),50 + (40 * (Player1.destroyer.y )), 82, 41);
                            }
                            else if (Player1.destroyer.direction == 4)
                            {
+                               
                                g.fillRect(50 + (40 * (Player1.destroyer.x -1 )),50 + (40 * (Player1.destroyer.y)), 82, 41);
                            }
                           
@@ -1944,7 +1959,7 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
              repaint();
             event.consume();
             
-            
+            firescreen++;
             
         }
         

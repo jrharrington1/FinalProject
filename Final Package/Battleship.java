@@ -8,19 +8,43 @@ public class Battleship
     int direction;
     int x;
     int y;
+    int startx;
+    int starty;
+    int endx;
+    int endy;
+    String type;
     
+    int[][] pegs;
     public Battleship(int length)
     {
         this.length = length;
+        
+        if (length == 2)
+            type = "Destroyer";
+        else if (length == 4)
+            type = "Battleship";
+        else
+            type = "Carrier";
+            
         direction = 0;
     }
     
-    public void placeBattleship(int xcoordinate, int ycoordinate, int directions, Board playingfield)
+    public Battleship(int length, int suborcru)
+    {
+        this.length = length;
+        
+        if (suborcru == 1)
+            type = "Cruiser";
+        else
+            type = "Submarine";
+            
+        direction = 0;
+    }
+    
+    public void placeBattleship(Board playingfield)
     {
         
-        int x = xcoordinate;
-        int y = ycoordinate;
-        int direction = directions;
+        
         
         if (direction == 1){// north
             for (int i = 0; i < length; i++)
@@ -48,4 +72,14 @@ public class Battleship
     
     
     }
+    
+    public void setPegs()
+    {
+        for (int i = 1; i <= length; i++)
+        {
+            
+        }
+
+    }
+   
 }

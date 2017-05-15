@@ -26,8 +26,8 @@ public class Board
     public boolean hit;
     
     Battleship destroyer = new Battleship(2);
-    Battleship cruiser = new Battleship(3);
-    Battleship submarine = new Battleship(3);
+    Battleship cruiser = new Battleship(3, 1);
+    Battleship submarine = new Battleship(3, 2);
     Battleship battleship = new Battleship(4);
     Battleship carrier = new Battleship(5);
     public Board(String name)
