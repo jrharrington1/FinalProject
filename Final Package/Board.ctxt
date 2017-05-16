@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=void\ viewBoard()
 comment4.params=
 comment4.target=int\ goBoard()
-numComments=5
+comment5.params=
+comment5.target=boolean\ ammoCheck()
+numComments=6

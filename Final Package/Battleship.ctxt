@@ -5,6 +5,4 @@ comment1.params=length\ suborcru
 comment1.target=Battleship(int,\ int)
 comment2.params=playingfield
 comment2.target=void\ placeBattleship(Board)
-comment3.params=
-comment3.target=void\ setPegs()
-numComments=4
+numComments=3
