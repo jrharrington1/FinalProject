@@ -1959,7 +1959,7 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
              repaint();
             event.consume();
             
-            firescreen++;
+           
             
         }
         
