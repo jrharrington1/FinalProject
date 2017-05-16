@@ -83,5 +83,16 @@ public class Board
         }
         return count;
     }
-
+    
+    public boolean ammoCheck()
+   
+    {
+        boolean ammo = true;
+        if (bullets  == 0)
+        {
+            ammo = false;
+        }
+        
+        return ammo;
+     }
 }
