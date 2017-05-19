@@ -9,18 +9,27 @@ public class Battleship
     int x;
     int y;
     String type;
-    
-  
+    boolean displayready = false;
+    int mod;
     public Battleship(int length)
     {
         this.length = length;
         
         if (length == 2)
+        {
             type = "Destroyer";
+            mod = 1;
+        }
         else if (length == 4)
+        {
             type = "Battleship";
+            mod = 3;
+        }
         else
+        {
             type = "Carrier";
+            mod = 4;
+        }
             
         direction = 0;
         
@@ -31,9 +40,15 @@ public class Battleship
         this.length = length;
         
         if (suborcru == 1)
+        {
             type = "Cruiser";
+            mod = 2;
+        }
         else
+        {
             type = "Submarine";
+            mod = 2;
+        }
             
         direction = 0;
     }
@@ -45,13 +60,13 @@ public class Battleship
         
         if (direction == 1){// north
             for (int i = 0; i < length; i++)
-                playingfield.board[y+i][x] = 1;
+                playingfield.board[y-i][x] = 1;
         
        }
     
         if (direction == 2){// south
             for (int j = 0; j < length; j++)
-                playingfield.board[y-j][x] = 1;
+                playingfield.board[y+j][x] = 1;
         
        }
     

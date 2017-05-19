@@ -23,40 +23,33 @@ public class Board
     
     public int bullets;
     public String name; 
-    public boolean hit;
+    
     
     Battleship destroyer = new Battleship(2);
     Battleship cruiser = new Battleship(3, 1);
     Battleship submarine = new Battleship(3, 2);
     Battleship battleship = new Battleship(4);
     Battleship carrier = new Battleship(5);
+    int[][] hitdisplay = {{}};
+                    
+    Battleship[] ships = {destroyer,cruiser,submarine,battleship,carrier};
+    
     public Board(String name)
     {
         this.name = name;
         bullets = 20;
     }
     
-    public boolean fire(int c, int r)
-    {
-        bullets--;
-        
-        if (board[c][r] == 1)
-            hit = true;
-        else
-            hit = false;
-        return hit;
-        
-        
-    }
+   
 
     public void updateBoard(boolean hit, int c, int r)
     {
         if (hit)
             //2 = hit
-            board[c][r] = 2;
+            board[r][c] = 2;
         else 
             //1 = miss
-            board[c][r] = -1;
+            board[r][c] = -1;
     }
     
     public void viewBoard()
@@ -87,12 +80,41 @@ public class Board
     public boolean ammoCheck()
    
     {
+        //used to end game, if one player has no ammo, they lose
         boolean ammo = true;
         if (bullets  == 0)
         {
             ammo = false;
         }
         
+        
         return ammo;
      }
+     
+     public boolean shipCheck()
+     {  
+         boolean shipsAlive = false;
+         int check = 0;
+         
+         //used to end game. if one player has no ships, they lose 
+         for (int x = 0; x < board.length; x++)
+         {
+             for (int y = 0; y < board[x].length; y++)
+            {
+                if (board[x][y] == 1)
+                {
+                    check++;
+                }
+            }
+            }
+            
+         if (check > 0)
+         {
+             shipsAlive = true;
+            }
+         else
+            shipsAlive = false;
+            
+          return shipsAlive;
+        }
 }

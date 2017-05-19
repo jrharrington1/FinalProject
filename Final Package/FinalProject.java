@@ -29,6 +29,7 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
     int screen = 0;
     int hitscreen = 0;
     
+    Board winner;
     
     
     int x;
@@ -101,36 +102,14 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
 
             Font buttonfont = new Font("asdfasdf", 1500, 35);
 
-
-
-
-
             g.setFont(buttonfont);
             g.setColor(Color.white);
             g.drawString("Press Any Key to Start", 330, 445);
-            
-            
-            
+          
             tr = new MediaTracker(this);
             logo = getImage(getCodeBase(), "battleshiplogo.jpg");
             tr.addImage(logo, 0);
             g.drawImage(logo, 335,111, this);
-            
-            if (fireimage)
-            {
-               g.setColor(Color.yellow);
-               g.fillOval(xco - 10,yco - 10,25,25);
-               
-               
-               
-               fireimage = false;
-            }
-            
-            
-            
-           
-                
-
         }
 
 
@@ -139,18 +118,22 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
 
        else
        {
-            
+            //background
             g.setColor(Color.blue);
             g.fillRect(0, 0, 1000, 600);
+            
+            //board background 
             g.setColor(Color.cyan);
-
             g.fillRect(50,50,400,400);
             g.fillRect(550,50,400,400);
-
+            
+            //battleship up top
             Font armyfont = new Font("army", 1500, 20);
             g.setFont(armyfont);
             g.setColor(Color.white);
             g.drawString("Battleship", 456, 20);
+            
+            //numbers on side of each board
             String kstr = "";
             for (int k = 0; k < 10; k++)
             {
@@ -180,6 +163,7 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
                 kstr = "";
             }
             
+            //lines for each board 
             g.setColor(Color.black);
 
             for (int x = 90; x < 450; x += 40)
@@ -202,7 +186,48 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
                 g.drawLine(550, y, 950, y);
             }
 
-
+            //hit places
+            if (screen == 34 || screen == 35 || screen == 36)
+            {
+                for (int i = 0; i < Player2.board.length; i++)
+                {
+                    for (int j = 0; j < Player2.board[i].length; j++)
+                    {
+                        if (Player2.board[i][j] == 2)
+                        {
+                            g.setColor(Color.red);
+                            g.fillRect(550 + (40 * j), 50 + (40 * i), 40, 40);
+                        }
+                        else if (Player2.board[i][j] == -1)
+                        {
+                            g.setColor(Color.white);
+                            g.fillRect(550 + (40 * j), 50 + (40 * i), 40, 40);
+                        }
+                    }
+                }
+            }
+            
+            if (screen ==  37 || screen == 38 || screen == 39)
+            {
+                for (int i = 0; i < Player1.board.length; i++)
+                {
+                    for (int j = 0; j < Player1.board[i].length; j++)
+                    {
+                        if (Player1.board[i][j] == 2)
+                        {
+                            g.setColor(Color.red);
+                            g.fillRect(550 + (40 * j), 50 + (40 * i), 40, 40);
+                        }
+                        else if (Player1.board[i][j] == -1)
+                        {
+                            g.setColor(Color.white);
+                            g.fillRect(550 + (40 * j), 50 + (40 * i), 40, 40);
+                        }
+                    }
+                }
+            }
+            
+            
        
             //command box outline 
             g.setColor(Color.lightGray);
@@ -210,15 +235,7 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
             g.setColor(Color.black);
             g.fillRect(310,485,380,80);
             
-             if (fireimage)
-            {
-               g.setColor(Color.yellow);
-               g.fillOval(xco - 10,yco - 10,25,25);
-               
-               
-               
-               fireimage = false;
-            }
+             
             
             
             
@@ -1853,8 +1870,7 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
                 Player2.battleship.placeBattleship(Player2);
                 Player2.carrier.placeBattleship(Player2);
             }
-        while (Player1.ammoCheck() && Player2.ammoCheck())
-        {
+       
             if (screen == 34)
             {
                 g.setColor(Color.LIGHT_GRAY);
@@ -2135,6 +2151,7 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
                 
                 if (hit)
                 {
+                    
                     g.setColor(Color.red);
                     g.fillRect(550 + (40 * x), 50 +(40 * y), 40, 40);
                     g.drawString(">Hit! Press ; to let " + Player2.name + " play their turn.", 320, 495);
@@ -2142,15 +2159,26 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
                 }
                 else
                 {
+                    g.setColor(Color.black);
+                    g.fillRect(310,485, 380, 80);
+                    g.setColor(Color.green);
                     g.drawString(">Miss. Press ; to let " + Player2.name + " play their turn.", 320, 495);
                     Player2.updateBoard(hit, x, y);
                     
+                }
+                
+                
+                if (!(Player2.ammoCheck() || Player2.shipCheck()))
+                {
+                    screen = 40;
+                    winner = Player1;
                 }
             }
             
             else if (screen == 37)
             {
                 g.setColor(Color.LIGHT_GRAY);
+                
                        
                                         if ( Player2.destroyer.direction == 1)
                        {              
@@ -2424,24 +2452,41 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
             else if (screen == 39)
             {
                 y = completeinput.charAt(0) - 48;
-                boolean hit = fire(x,y,Player2);
+                boolean hit = fire(x,y,Player1);
                 
                 if (hit)
                 {
                     g.setColor(Color.red);
                     g.fillRect(550 + (40 * x), 50 +(40 * y), 40, 40);
-                    g.drawString(">Hit! Press ; to let " + Player1.name + " play their turn.", 320, 495);
-                    Player2.updateBoard(hit, x, y);
+                    g.drawString(">Hit! Press ; to let " + Player1.name + " play their turn." , 320, 495);
+                    
+                    Player1.updateBoard(hit, x, y);
                 }
                 else
                 {
                     g.drawString(">Miss. Press ; to let " + Player1.name + " play their turn.", 320, 495);
-                    Player2.updateBoard(hit, x, y);
+                    Player1.updateBoard(hit, x, y);
                     
                 }
+                
+                 if (!(Player1.ammoCheck() || Player1.shipCheck()))
+                {
+                    screen = 40;
+                    winner = Player2;
+                }
+                else 
+                {
+                    screen = 33;
+                }
             }
-          }
-        
+          
+          
+          if (screen >= 40)
+          {   
+
+          g.drawString(">" + winner.name + " is the winner!", 320, 495);
+          g.drawString(">Game Over", 320, 505);
+         }
        }//end of game screen
     }
     
@@ -2506,12 +2551,7 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
             fireimage = false;
              repaint();
             event.consume();
-            
-<<<<<<< HEAD
-           
-=======
-            
->>>>>>> origin/master
+
             
         }
         
@@ -2616,7 +2656,39 @@ public class FinalProject extends JApplet implements MouseListener, KeyListener
         return hit;
     }
 
-
-
+    public void shipDisplay(Battleship ship, Graphics g)
+    {
+        g.setColor(Color.LIGHT_GRAY);
+        if (ship.direction == 1)
+        {
+            g.fillRect(50 + (40 * ship.x), 50 + (40 * (ship.y - ship.mod)), 41, 41 * ship.length);
+        }
+        else if (ship.direction == 2)
+        {
+            g.fillRect(50 + (40 * ship.x), 50 + (40 * ship.y), 41, 41 * ship.length);
+        }
+        else if (ship.direction == 3)
+        {
+            g.fillRect(50 + (40 * ship.x), 50 + (40 * ship.y), 41 * ship.length, 41);
+        }
+        else
+        {
+            g.fillRect(50 + (40 * (ship.x - ship.mod)), 50 + (40 * ship.y), 41 * ship.length, 41);
+        }
+            
+    }
+    
+    public void shipsDisplay(Board player, Graphics g)
+    {
+        g.setColor(Color.LIGHT_GRAY);
+        
+        for (int i = 0; i < player.ships.length; i++)
+        {
+            if (player.ships[i].displayready)
+            {
+                shipDisplay(player.ships[i], g);
+            }
+        }
+    }
 
 }
